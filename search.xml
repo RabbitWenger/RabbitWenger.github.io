@@ -159,8 +159,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>hexo next主题查找css样式的文件</title>
-    <url>/2022/03/08/hexo%20next%E4%B8%BB%E9%A2%98%E6%9F%A5%E6%89%BEcss%E6%A0%B7%E5%BC%8F%E7%9A%84%E6%96%87%E4%BB%B6/</url>
+    <title>hexo next主题查找css对应文件</title>
+    <url>/2022/03/08/hexo%20next%E4%B8%BB%E9%A2%98%E6%9F%A5%E6%89%BEcss%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="/images/20220308155106.png"><br>比如我需要将首页，标签背景黑色，变成我想要的颜色。必须要在next\source\css下的.styl文件里面修改。因为我的next版本是最新的，网上搜到的文章，文件代码都不一样了，只能手动查找。</p>
 <span id="more"></span>
 <h1 id="定位元素类名"><a href="#定位元素类名" class="headerlink" title="定位元素类名"></a>定位元素类名</h1><p>在元素上右击”检查”，进入开发人员工具后，选中对应标签的元素，找到类名是”site-brand-container”。<br><img src="/images/20220308155107.png"></p>
