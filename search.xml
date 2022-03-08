@@ -158,4 +158,17 @@
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/duhengqi/article/details/54882464">编程常用缩写（带中文）</a><br><a href="https://blog.csdn.net/weixin_40933787/article/details/80337434">编程常用缩写（不带中文）</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>hexo next主题查找css样式的文件</title>
+    <url>/2022/03/08/hexo%20next%E4%B8%BB%E9%A2%98%E6%9F%A5%E6%89%BEcss%E6%A0%B7%E5%BC%8F%E7%9A%84%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="/images/20220308155106.png"><br>比如我需要将首页，标签背景黑色，变成我想要的颜色。必须要在next\source\css文件夹中，对应的.styl文件里面修改。因为我的next版本是最新的，网上的文章文件代码都不一样了，只能手动查找。</p>
+<span id="more"></span>
+<h1 id="定位元素类名"><a href="#定位元素类名" class="headerlink" title="定位元素类名"></a>定位元素类名</h1><p>在元素上右击”检查”，进入开发人员工具后，选中对应标签的元素，找到类名是”site-brand-container”。<br><img src="/images/20220308155107.png"></p>
+<h1 id="cmd一句话查找-styl文件"><a href="#cmd一句话查找-styl文件" class="headerlink" title="cmd一句话查找.styl文件"></a>cmd一句话查找.styl文件</h1><p>在css上级目录，source路径下打开cmd，复制以下命令回车，即可找到对应类的.styl文件。</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off&amp;<span class="keyword">for</span> /f &quot;delims=&quot; %a <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /b /s css\*.styl&#x27;) <span class="keyword">do</span> <span class="built_in">type</span> %a|<span class="built_in">find</span> &quot;.site-brand-container&quot; <span class="number">1</span>&gt;<span class="built_in">nul</span>&amp;&amp;<span class="built_in">echo</span> %a</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/images/20220308160741.png"></p>
+<h1 id="修改css颜色代码"><a href="#修改css颜色代码" class="headerlink" title="修改css颜色代码"></a>修改css颜色代码</h1><p>最后在_header.styl里面找到了，替换第二行的<code>var(--theme-color)</code>为指定颜色代码，比如<code>#fc6423</code>。<br><img src="/images/20220308162049.png"></p>
+<h1 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h1><p>回到本地刷新页面，修改成功：<br><img src="/images/20220308162202.png"></p>
+]]></content>
+  </entry>
 </search>
