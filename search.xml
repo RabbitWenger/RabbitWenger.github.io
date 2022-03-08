@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>bat+js混编 10进制转16进制</title>
+    <url>/2022/03/07/bat+js%E6%B7%B7%E7%BC%96%2010%E8%BF%9B%E5%88%B6%E8%BD%AC16%E8%BF%9B%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">/*&amp;<span class="built_in">cls</span>&amp;@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> num=<span class="number">12</span></span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;cscript -nologo -e:jscript &quot;%~f0&quot; <span class="variable">%num%</span>&#x27;) <span class="keyword">do</span> (</span><br><span class="line">   <span class="built_in">echo</span> <span class="variable">%%a</span></span><br><span class="line">)</span><br><span class="line">timeout <span class="number">2</span> <span class="number">1</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="keyword">exit</span> /b</span><br><span class="line">*/</span><br><span class="line">WSH.<span class="built_in">Echo</span>(Number(WSH.Arguments(<span class="number">0</span>)).toString(<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+<p>保存为bat文件运行，输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c</span><br></pre></td></tr></table></figure>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><p>WSH.Arguments(0)变量从bat传递过来，要加<code>Number</code>转换成数值型，否则js块无法转换进制。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(<span class="title class_">Number</span>(<span class="variable constant_">WSH</span>.<span class="title class_">Arguments</span>(<span class="number">0</span>)).<span class="title function_">toString</span>(<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/hlinghling/article/details/51482389">使用JavaScript进行进制转换将字符串转换为十进制</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>js以utf-8编码保存到txt</title>
+    <url>/2022/03/08/js%E4%BB%A5utf-8%E7%BC%96%E7%A0%81%E4%BF%9D%E5%AD%98%E5%88%B0txt/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>编程中的缩写表</title>
+    <url>/2022/03/08/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%BC%A9%E5%86%99%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>说一下我自学编程定义变量的习惯史</p>
+<ol>
+<li>从一开始自学编程只喜欢用a b c d …这种简单直接的来定义变量</li>
+<li>后来为了规范化和记得住含义用整个英文单词</li>
+<li>慢慢的使用自创的缩写，两个单词的就开始用下划线_来连接。</li>
+<li>发现用英文的缩写也可以记住这个单词的含义了，为了美观和常规化，也没用下划线_来连接单词了，而是首字母大写来代替。缩写方面也都会先百度这个单词的缩写用。</li>
+</ol>
+<p>下面只记录自己常用的一些英文的缩写，供使用和参考，需要更多转参考文献。</p>
+<h1 id="缩写表"><a href="#缩写表" class="headerlink" title="缩写表"></a>缩写表</h1><table>
+<thead>
+<tr>
+<th>缩写</th>
+<th align="left">全称</th>
+<th align="right">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>buf</td>
+<td align="left">Buffer</td>
+<td align="right">缓冲区</td>
+</tr>
+<tr>
+<td>col</td>
+<td align="left">Column</td>
+<td align="right">列，专栏，柱</td>
+</tr>
+<tr>
+<td>char</td>
+<td align="left">Character</td>
+<td align="right">字符</td>
+</tr>
+<tr>
+<td>str</td>
+<td align="left">String</td>
+<td align="right">字符串</td>
+</tr>
+<tr>
+<td>img</td>
+<td align="left">Image</td>
+<td align="right">图像</td>
+</tr>
+<tr>
+<td>pic</td>
+<td align="left">picture</td>
+<td align="right">图片</td>
+</tr>
+<tr>
+<td>fld</td>
+<td align="left">Folder</td>
+<td align="right">文件夹</td>
+</tr>
+<tr>
+<td>txt</td>
+<td align="left">text</td>
+<td align="right">文本</td>
+</tr>
+<tr>
+<td>dir</td>
+<td align="left">directory</td>
+<td align="right">目录，文件夹</td>
+</tr>
+<tr>
+<td>doc</td>
+<td align="left">Document</td>
+<td align="right">文件，文档</td>
+</tr>
+<tr>
+<td>chg</td>
+<td align="left">Change</td>
+<td align="right">改变</td>
+</tr>
+<tr>
+<td>num</td>
+<td align="left">Number</td>
+<td align="right">数目</td>
+</tr>
+<tr>
+<td>max</td>
+<td align="left">Maximum</td>
+<td align="right">最高，最大</td>
+</tr>
+<tr>
+<td>min</td>
+<td align="left">Minimum</td>
+<td align="right">最低，最小</td>
+</tr>
+<tr>
+<td>org</td>
+<td align="left">Origin&#x2F;Original</td>
+<td align="right">原始，最初</td>
+</tr>
+<tr>
+<td>pre&#x2F;prev</td>
+<td align="left">previous</td>
+<td align="right">以前的</td>
+</tr>
+<tr>
+<td>proc</td>
+<td align="left">Process&#x2F;Procedure</td>
+<td align="right">处理</td>
+</tr>
+<tr>
+<td>del</td>
+<td align="left">Delete</td>
+<td align="right">删除</td>
+</tr>
+<tr>
+<td>err</td>
+<td align="left">error</td>
+<td align="right">错误</td>
+</tr>
+<tr>
+<td>ex&#x2F;ext</td>
+<td align="left">Extend</td>
+<td align="right">延长，扩展</td>
+</tr>
+<tr>
+<td>exec</td>
+<td align="left">execute</td>
+<td align="right">执行，完成</td>
+</tr>
+<tr>
+<td>prn</td>
+<td align="left">Print</td>
+<td align="right">打印</td>
+</tr>
+<tr>
+<td>grp</td>
+<td align="left">group</td>
+<td align="right">组</td>
+</tr>
+</tbody></table>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/duhengqi/article/details/54882464">编程常用缩写（带中文）</a><br><a href="https://blog.csdn.net/weixin_40933787/article/details/80337434">编程常用缩写（不带中文）</a></p>
+]]></content>
+  </entry>
+</search>

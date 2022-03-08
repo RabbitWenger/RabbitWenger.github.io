@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言说一下我自学编程定义变量的习惯史  从一开始自学编程只喜欢用a b c d …这种简单直接的来定义变量 后来为了规范化和记得住含义用整个英文单词 慢慢的使用自创的缩写，两个单词的就开始用下划线_来连接。 发现用英文的缩写也可以记住这个单词的含义了，为了美观和常规化，也没用下划线_来连接单词了，而是首字母大写来代替。缩写方面也都会先百度这个单词的缩写用。  下面只记录自己常用的一些英文的缩写，供">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程中的缩写表">
+<meta property="og:url" content="http://example.com/2022/03/08/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%BC%A9%E5%86%99%E8%A1%A8/index.html">
+<meta property="og:site_name" content="文哥博客">
+<meta property="og:description" content="前言说一下我自学编程定义变量的习惯史  从一开始自学编程只喜欢用a b c d …这种简单直接的来定义变量 后来为了规范化和记得住含义用整个英文单词 慢慢的使用自创的缩写，两个单词的就开始用下划线_来连接。 发现用英文的缩写也可以记住这个单词的含义了，为了美观和常规化，也没用下划线_来连接单词了，而是首字母大写来代替。缩写方面也都会先百度这个单词的缩写用。  下面只记录自己常用的一些英文的缩写，供">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-08T05:20:14.932Z">
+<meta property="article:modified_time" content="2022-03-08T06:00:23.079Z">
+<meta property="article:author" content="文哥">
+<meta property="article:tag" content="bat js python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/03/08/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%BC%A9%E5%86%99%E8%A1%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/03/08/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%BC%A9%E5%86%99%E8%A1%A8/","path":"2022/03/08/编程中的缩写表/","title":"编程中的缩写表"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>编程中的缩写表 | 文哥博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">文哥博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">轻量级脚本 自动化编程</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>文章</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%A9%E5%86%99%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">缩写表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="文哥"
+      src="/images/1.jpg">
+  <p class="site-author-name" itemprop="name">文哥</p>
+  <div class="site-description" itemprop="description">暂时先自用不做优化</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/08/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%BC%A9%E5%86%99%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="name" content="文哥">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="文哥博客">
+      <meta itemprop="description" content="暂时先自用不做优化">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="编程中的缩写表 | 文哥博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编程中的缩写表
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-03-08 13:20:14 / 修改时间：14:00:23" itemprop="dateCreated datePublished" datetime="2022-03-08T13:20:14+08:00">2022-03-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>说一下我自学编程定义变量的习惯史</p>
+<ol>
+<li>从一开始自学编程只喜欢用a b c d …这种简单直接的来定义变量</li>
+<li>后来为了规范化和记得住含义用整个英文单词</li>
+<li>慢慢的使用自创的缩写，两个单词的就开始用下划线_来连接。</li>
+<li>发现用英文的缩写也可以记住这个单词的含义了，为了美观和常规化，也没用下划线_来连接单词了，而是首字母大写来代替。缩写方面也都会先百度这个单词的缩写用。</li>
+</ol>
+<p>下面只记录自己常用的一些英文的缩写，供使用和参考，需要更多转参考文献。</p>
+<h1 id="缩写表"><a href="#缩写表" class="headerlink" title="缩写表"></a>缩写表</h1><table>
+<thead>
+<tr>
+<th>缩写</th>
+<th align="left">全称</th>
+<th align="right">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>buf</td>
+<td align="left">Buffer</td>
+<td align="right">缓冲区</td>
+</tr>
+<tr>
+<td>col</td>
+<td align="left">Column</td>
+<td align="right">列，专栏，柱</td>
+</tr>
+<tr>
+<td>char</td>
+<td align="left">Character</td>
+<td align="right">字符</td>
+</tr>
+<tr>
+<td>str</td>
+<td align="left">String</td>
+<td align="right">字符串</td>
+</tr>
+<tr>
+<td>img</td>
+<td align="left">Image</td>
+<td align="right">图像</td>
+</tr>
+<tr>
+<td>pic</td>
+<td align="left">picture</td>
+<td align="right">图片</td>
+</tr>
+<tr>
+<td>fld</td>
+<td align="left">Folder</td>
+<td align="right">文件夹</td>
+</tr>
+<tr>
+<td>txt</td>
+<td align="left">text</td>
+<td align="right">文本</td>
+</tr>
+<tr>
+<td>dir</td>
+<td align="left">directory</td>
+<td align="right">目录，文件夹</td>
+</tr>
+<tr>
+<td>doc</td>
+<td align="left">Document</td>
+<td align="right">文件，文档</td>
+</tr>
+<tr>
+<td>chg</td>
+<td align="left">Change</td>
+<td align="right">改变</td>
+</tr>
+<tr>
+<td>num</td>
+<td align="left">Number</td>
+<td align="right">数目</td>
+</tr>
+<tr>
+<td>max</td>
+<td align="left">Maximum</td>
+<td align="right">最高，最大</td>
+</tr>
+<tr>
+<td>min</td>
+<td align="left">Minimum</td>
+<td align="right">最低，最小</td>
+</tr>
+<tr>
+<td>org</td>
+<td align="left">Origin&#x2F;Original</td>
+<td align="right">原始，最初</td>
+</tr>
+<tr>
+<td>pre&#x2F;prev</td>
+<td align="left">previous</td>
+<td align="right">以前的</td>
+</tr>
+<tr>
+<td>proc</td>
+<td align="left">Process&#x2F;Procedure</td>
+<td align="right">处理</td>
+</tr>
+<tr>
+<td>del</td>
+<td align="left">Delete</td>
+<td align="right">删除</td>
+</tr>
+<tr>
+<td>err</td>
+<td align="left">error</td>
+<td align="right">错误</td>
+</tr>
+<tr>
+<td>ex&#x2F;ext</td>
+<td align="left">Extend</td>
+<td align="right">延长，扩展</td>
+</tr>
+<tr>
+<td>exec</td>
+<td align="left">execute</td>
+<td align="right">执行，完成</td>
+</tr>
+<tr>
+<td>prn</td>
+<td align="left">Print</td>
+<td align="right">打印</td>
+</tr>
+<tr>
+<td>grp</td>
+<td align="left">group</td>
+<td align="right">组</td>
+</tr>
+</tbody></table>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/duhengqi/article/details/54882464">编程常用缩写（带中文）</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40933787/article/details/80337434">编程常用缩写（不带中文）</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/08/js%E4%BB%A5utf-8%E7%BC%96%E7%A0%81%E4%BF%9D%E5%AD%98%E5%88%B0txt/" rel="prev" title="js以utf-8编码保存到txt">
+                  <i class="fa fa-chevron-left"></i> js以utf-8编码保存到txt
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">文哥</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
