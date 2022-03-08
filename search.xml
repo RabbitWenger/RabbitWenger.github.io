@@ -168,7 +168,7 @@
 <figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off&amp;<span class="keyword">for</span> /f &quot;delims=&quot; %a <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /b /s css\*.styl&#x27;) <span class="keyword">do</span> <span class="built_in">type</span> %a|<span class="built_in">find</span> &quot;.site-brand-container&quot; <span class="number">1</span>&gt;<span class="built_in">nul</span>&amp;&amp;<span class="built_in">echo</span> %a</span><br></pre></td></tr></table></figure>
 <p>运行结果：<br><img src="/images/20220308160741.png"></p>
 <h1 id="修改css颜色代码"><a href="#修改css颜色代码" class="headerlink" title="修改css颜色代码"></a>修改css颜色代码</h1><p>最后在_header.styl里面找到了，替换第二行的<code>var(--theme-color)</code>为指定颜色代码，比如<code>#fc6423</code>。<br><img src="/images/20220308162049.png"></p>
-<h1 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h1><p>回到本地刷新页面，修改成功：<br><img src="/images/20220308162202.png"></p>
+<h1 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h1><p>回到本地网页刷新页面，修改成功：<br><img src="/images/20220308162202.png"></p>
 ]]></content>
   </entry>
 </search>
