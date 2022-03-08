@@ -169,7 +169,7 @@
 <p>运行结果：<br><img src="/images/20220308160741.png"></p>
 <h1 id="修改css颜色代码"><a href="#修改css颜色代码" class="headerlink" title="修改css颜色代码"></a>修改css颜色代码</h1><p>最后在_header.styl里面找到了，替换第二行的<code>var(--theme-color)</code>为指定颜色代码，比如<code>#fc6423</code>。<br><img src="/images/20220308162049.png"></p>
 <h1 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h1><p>回到本地网页刷新页面，修改成功：<br><img src="/images/20220308162202.png"></p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>补充一下，最后<code>hexo -d</code>提交后，外网域名访问页面，还是没有改变。还需要在hexo\public\css文件夹，main.css第14行修改颜色代码后再提交，如下图：<br><img src="/images/20220308162203.png"></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>补充一下，最后<code>hexo d</code>提交后，外网域名访问页面，还是没有改变。还需要在hexo\public\css文件夹，main.css第14行修改颜色代码后再提交，如下图：<br><img src="/images/20220308162203.png"></p>
 ]]></content>
   </entry>
 </search>
