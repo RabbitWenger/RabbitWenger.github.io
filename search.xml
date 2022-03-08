@@ -4,6 +4,8 @@
     <title>bat+js混编 10进制转16进制</title>
     <url>/2022/03/07/bat+js%E6%B7%B7%E7%BC%96%2010%E8%BF%9B%E5%88%B6%E8%BD%AC16%E8%BF%9B%E5%88%B6/</url>
     <content><![CDATA[<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">/*&amp;<span class="built_in">cls</span>&amp;@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> num=<span class="number">12</span></span><br><span class="line"><span class="keyword">for</span> /f <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;cscript -nologo -e:jscript &quot;%~f0&quot; <span class="variable">%num%</span>&#x27;) <span class="keyword">do</span> (</span><br><span class="line">   <span class="built_in">echo</span> <span class="variable">%%a</span></span><br><span class="line">)</span><br><span class="line">timeout <span class="number">2</span> <span class="number">1</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="keyword">exit</span> /b</span><br><span class="line">*/</span><br><span class="line">WSH.<span class="built_in">Echo</span>(Number(WSH.Arguments(<span class="number">0</span>)).toString(<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
 <p>保存为bat文件运行，输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c</span><br></pre></td></tr></table></figure>
 <h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><p>WSH.Arguments(0)变量从bat传递过来，要加<code>Number</code>转换成数值型，否则js块无法转换进制。</p>
@@ -28,6 +30,7 @@
 <li>发现用英文的缩写也可以记住这个单词的含义了，为了美观和常规化，也没用下划线_来连接单词了，而是首字母大写来代替。缩写方面也都会先百度这个单词的缩写用。</li>
 </ol>
 <p>下面只记录自己常用的一些英文的缩写，供使用和参考，需要更多转参考文献。</p>
+<span id="more"></span>
 <h1 id="缩写表"><a href="#缩写表" class="headerlink" title="缩写表"></a>缩写表</h1><table>
 <thead>
 <tr>
