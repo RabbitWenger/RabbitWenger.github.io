@@ -2572,7 +2572,7 @@ mark.search-keyword {
   }
 }
 .site-brand-container {
-  background: var(--theme-color);
+  background: #fc6423;
 }
 @media (max-width: 991px) {
   .site-nav-on .site-brand-container {
