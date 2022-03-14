@@ -31,6 +31,14 @@
 ]]></content>
   </entry>
   <entry>
+    <title>hexo next设置背景图片及透明度</title>
+    <url>/2022/03/14/hexo%20next%E8%AE%BE%E7%BD%AE%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%8F%8A%E9%80%8F%E6%98%8E%E5%BA%A6/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><span id="more"></span>
+
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.cnblogs.com/cscshi/p/15196114.html">Hexo-NexT 设置博客背景图片</a><br><a href=""></a><br><a href=""></a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>js以utf-8编码保存到txt</title>
     <url>/2022/03/08/js%E4%BB%A5utf-8%E7%BC%96%E7%A0%81%E4%BF%9D%E5%AD%98%E5%88%B0txt/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>js中，保存文件的方式可以调用fso组件，但它不支持utf-8编码，只能读取。那么我们可以使用，处理编码方面强大的adodb.Stream来处理。</p>

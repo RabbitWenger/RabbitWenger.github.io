@@ -2825,7 +2825,7 @@ mark.search-keyword {
   }
 }
 body {
-  background: url("/images/background.jpg");
+  background: url("/images/background/background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -2836,26 +2836,20 @@ body {
 .main-inner > .tabs-comment,
 .main-inner > .comments,
 .main-inner > .pagination {
-  background: #fff;
-}
-body {
-  color: #000;
-}
-.posts-expand .post-title-link {
-  color: #000;
+  background: rgba(255,255,255,0.85);
 }
 .posts-expand .post-meta-container {
   color: #fc6423;
 }
-.sidebar {
-  opacity: 0.8;
+.footer {
+  color: #fc6423;
 }
 .header-inner {
-  background: rgba(255,255,255,0.8);
+  opacity: 0.95;
+}
+.sidebar {
+  opacity: 0.9;
 }
 .popup {
-  opacity: 0.8;
-}
-.main-inner {
-  opacity: 0.8;
+  opacity: 0.95;
 }
