@@ -97,6 +97,21 @@
 <td align="right">目录，文件夹</td>
 </tr>
 <tr>
+<td>dr</td>
+<td align="left">Drive</td>
+<td align="right">驱动器</td>
+</tr>
+<tr>
+<td>hd</td>
+<td align="left">Hard Disk</td>
+<td align="right">硬盘</td>
+</tr>
+<tr>
+<td>du</td>
+<td align="left">disk usage</td>
+<td align="right">磁盘用量</td>
+</tr>
+<tr>
 <td>doc</td>
 <td align="left">Document</td>
 <td align="right">文件，文档</td>
@@ -205,31 +220,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>python调用youtube api的方法</title>
-    <url>/2022/03/10/python%E8%B0%83%E7%94%A8youtube%20api%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="创建api-key"><a href="#创建api-key" class="headerlink" title="创建api key"></a>创建api key</h1><p>api key千万不要泄露给他人，否则别人会使用你的身份去做某些事情。如果发现泄露了，请立即删除重新创建。</p>
-<ol>
-<li>进入谷歌<a href="https://console.cloud.google.com/">api</a>网址</li>
-<li>新建项目</li>
-<li>搜索并启用“YouTube Data API v3”</li>
-<li>创建凭据</li>
-<li>选择“YouTube Data API v3”</li>
-<li>选择公开数据</li>
-<li>复制api密匙</li>
-</ol>
-<span id="more"></span>
-<h1 id="安装谷歌api客户端"><a href="#安装谷歌api客户端" class="headerlink" title="安装谷歌api客户端"></a>安装谷歌api客户端</h1><p>谷歌api的<a href="https://github.com/googleapis/google-api-python-client">GitHub</a>里说明了Windows该如何进行安装，在cmd中pip进行安装前，需要开启cmd代理，否则会失败。</p>
-<ol>
-<li>pip进行安装<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install google-api-python-client</span><br></pre></td></tr></table></figure></li>
-<li>编写简单代码</li>
-<li>查看谷歌api文档<br>1.1 入门<a href="https://github.com/googleapis/google-api-python-client/blob/main/docs/start.md">文档</a> ,说明如何构建服务对象，代码如下：<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> googleapiclient.discovery <span class="keyword">import</span> build</span><br><span class="line">service = build(<span class="string">&#x27;drive&#x27;</span>, <span class="string">&#x27;v3&#x27;</span>)</span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># service.close()</span></span><br></pre></td></tr></table></figure>
-1.4 youtube实例的方法<a href="http://googleapis.github.io/google-api-python-client/docs/dyn/youtube_v3.html">文档</a></li>
-</ol>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.youtube.com/watch?v=th5_9woFJmk">Python YouTube API Tutorial: Getting Started - Creating an API Key and Querying the API</a><br><a href="https://github.com/googleapis/google-api-python-client/blob/main/docs/start.md">google-api-python-client&#x2F;start.md at main · googleapis&#x2F;google-api-python-client</a></p>
-<p><a href="https://www.lsbin.com/9229.html">https://www.lsbin.com/9229.html</a><br><a href="https://dev.to/algodame/how-to-subscribe-to-and-receive-push-notifications-from-youtubes-api-using-typescript-and-nodejs-2gik">https://dev.to/algodame/how-to-subscribe-to-and-receive-push-notifications-from-youtubes-api-using-typescript-and-nodejs-2gik</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>判断变量为空的方法</title>
     <url>/2022/03/14/%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E4%B8%BA%E7%A9%BA%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>平常用到bat python比较多，这两种语言非常好判断。但是js就不方便了，因为js变量的不同类型判断的方式是不一样的。</p>
@@ -246,6 +236,23 @@
 <p>这里用到的<code>len</code>，和bat中的<code>errorlevel</code>错误等级类似。如果一个变量内容不是空，则返回1，如果两个变量都不是空，那就返回2。都是空，则返回0。当然这是针对字符串类型的变量，如果你的变量为字符串型，那么你需要进行转换。<br>例如str1不是字符串，len中需要对其进行转换：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(str1)+str2) == <span class="number">0</span>:</span><br></pre></td></tr></table></figure>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.html.cn/qa/javascript/12161.html">javascript判断变量值是否为空？</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>wsh获取磁盘信息</title>
+    <url>/2022/03/14/wsh%E8%8E%B7%E5%8F%96%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在wsh中，操控磁盘及文件由fso对象来处理，但获取数据在语法上有些不同，下面来展示一下js和vbs之间的区别。</p>
+<blockquote>
+<p>FSO是FileSystemObject 或 Scripting.FileSystemObject 的缩写，为 IIS 内置组件。可以实现文件（夹）的创建、改变、移动和删除等常见操作，也可以获取文件（夹）的名称、大小、属性、创建日期或最近修改日期等信息，还可以检测是否存在指定的文件夹。通过FSO 对象模型可以获取当前系统驱动器信息，如驱动器的种类（CD－ROM还是可移动磁盘）、磁盘剩余空间等等。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="获取驱动器号"><a href="#获取驱动器号" class="headerlink" title="获取驱动器号"></a>获取驱动器号</h1><p>js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fso = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>) <span class="comment">//创建fso对象</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Enum</span> = <span class="keyword">new</span> <span class="title class_">Enumerator</span>(fso.<span class="property">Drives</span>) <span class="comment">//获取驱动器号列表</span></span><br><span class="line"><span class="keyword">for</span>(<span class="title class_">Enum</span>.<span class="title function_">moveFirst</span>();!<span class="title class_">Enum</span>.<span class="title function_">atEnd</span>();<span class="title class_">Enum</span>.<span class="title function_">moveNext</span>())&#123; <span class="comment">//遍历驱动号</span></span><br><span class="line">    <span class="keyword">var</span> drive = <span class="title class_">Enum</span>.<span class="title function_">item</span>()</span><br><span class="line">    <span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(drive)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>vbs</p>
+<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> fso = <span class="built_in">CreateObject</span>(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>) <span class="comment">&#x27;创建fso对象</span></span><br><span class="line"><span class="keyword">set</span> colDrives = fso.Drives <span class="comment">&#x27;获取驱动器号列表</span></span><br><span class="line"><span class="keyword">For</span> <span class="keyword">Each</span> disk <span class="keyword">in</span> colDrives <span class="comment">&#x27;遍历驱动器号</span></span><br><span class="line">  WSH.Echo(disk)</span><br><span class="line"><span class="keyword">Next</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.51cto.com/u_11508007/3594301">VBS查看分区剩余空间</a><br><a href="https://blog.51cto.com/sucre/411649">用vbs脚本获取磁盘信息</a></p>
 ]]></content>
   </entry>
 </search>
