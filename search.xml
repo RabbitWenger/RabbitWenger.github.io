@@ -17,6 +17,20 @@
 ]]></content>
   </entry>
   <entry>
+    <title>hexo next主题查找css对应文件</title>
+    <url>/2022/03/08/hexo%20next%E4%B8%BB%E9%A2%98%E6%9F%A5%E6%89%BEcss%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="/images/20220308155106.png"><br>比如我需要将首页，标签背景黑色，变成我想要的颜色。必须要在next\source\css下的.styl文件里面修改。因为我的next版本是最新的，网上搜到的文章，文件代码都不一样了，只能手动查找。</p>
+<span id="more"></span>
+<h1 id="定位元素类名"><a href="#定位元素类名" class="headerlink" title="定位元素类名"></a>定位元素类名</h1><p>在元素上右击”检查”，进入开发人员工具后，选中对应标签的元素，找到类名是”site-brand-container”。<br><img src="/images/20220308155107.png"></p>
+<h1 id="cmd一句话查找-styl文件"><a href="#cmd一句话查找-styl文件" class="headerlink" title="cmd一句话查找.styl文件"></a>cmd一句话查找.styl文件</h1><p>在css上级目录，source路径下打开cmd，复制以下命令回车，即可找到对应类的.styl文件。</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off&amp;<span class="keyword">for</span> /f &quot;delims=&quot; %a <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /b /s css\*.styl&#x27;) <span class="keyword">do</span> <span class="built_in">type</span> %a|<span class="built_in">find</span> &quot;.site-brand-container&quot; <span class="number">1</span>&gt;<span class="built_in">nul</span>&amp;&amp;<span class="built_in">echo</span> %a</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br><img src="/images/20220308160741.png"></p>
+<h1 id="修改css颜色代码"><a href="#修改css颜色代码" class="headerlink" title="修改css颜色代码"></a>修改css颜色代码</h1><p>最后在_header.styl里面找到了，替换第二行的<code>var(--theme-color)</code>为指定颜色代码，比如<code>#fc6423</code>。<br><img src="/images/20220308162049.png"></p>
+<h1 id="查看本地网页结果"><a href="#查看本地网页结果" class="headerlink" title="查看本地网页结果"></a>查看本地网页结果</h1><p>回到本地网页刷新页面，修改成功：<br><img src="/images/20220308162202.png"></p>
+<h1 id="外网页面css修改"><a href="#外网页面css修改" class="headerlink" title="外网页面css修改"></a>外网页面css修改</h1><p>最后<code>hexo d</code>提交上传至外网后，还是没有改变。还需要在hexo\public\css文件夹，main.css第14行修改颜色代码后再提交，如下图：<br><img src="/images/20220308162203.png"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>js以utf-8编码保存到txt</title>
     <url>/2022/03/08/js%E4%BB%A5utf-8%E7%BC%96%E7%A0%81%E4%BF%9D%E5%AD%98%E5%88%B0txt/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>js中，保存文件的方式可以调用fso组件，但它不支持utf-8编码，只能读取。那么我们可以使用，处理编码方面强大的adodb.Stream来处理。</p>
@@ -29,6 +43,42 @@
 <h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">stm.<span class="property">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="comment">//指定字符编码为utf-8</span></span><br></pre></td></tr></table></figure>
 <p>如果想要ANSI编码，以上utf-8替换成gb2312。charset不定义的话，默认编码是Unicode。</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://hustlei.github.io/2015/04/javascript-filesystem.html">javascript&#x2F;jscript文件操作</a><br><a href="http://blog.sina.com.cn/s/blog_53fff5cc0100mqz2.html">Adodb.Stream组件详解</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>wsh获取磁盘信息</title>
+    <url>/2022/03/14/wsh%E8%8E%B7%E5%8F%96%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在wsh中，操控磁盘及文件由fso对象来处理，但获取数据在语法上有些不同，下面来展示一下js和vbs之间的区别。</p>
+<blockquote>
+<p>FSO是FileSystemObject 或 Scripting.FileSystemObject 的缩写，为 IIS 内置组件。可以实现文件（夹）的创建、改变、移动和删除等常见操作，也可以获取文件（夹）的名称、大小、属性、创建日期或最近修改日期等信息，还可以检测是否存在指定的文件夹。通过FSO 对象模型可以获取当前系统驱动器信息，如驱动器的种类（CD－ROM还是可移动磁盘）、磁盘剩余空间等等。</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="获取驱动器号"><a href="#获取驱动器号" class="headerlink" title="获取驱动器号"></a>获取驱动器号</h1><p>js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fso = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>) <span class="comment">//创建fso对象</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Enum</span> = <span class="keyword">new</span> <span class="title class_">Enumerator</span>(fso.<span class="property">Drives</span>) <span class="comment">//获取驱动器号列表</span></span><br><span class="line"><span class="keyword">for</span>(<span class="title class_">Enum</span>.<span class="title function_">moveFirst</span>();!<span class="title class_">Enum</span>.<span class="title function_">atEnd</span>();<span class="title class_">Enum</span>.<span class="title function_">moveNext</span>())&#123; <span class="comment">//遍历驱动号</span></span><br><span class="line">    <span class="keyword">var</span> drive = <span class="title class_">Enum</span>.<span class="title function_">item</span>()</span><br><span class="line">    <span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(drive)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>vbs</p>
+<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> fso = <span class="built_in">CreateObject</span>(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>) <span class="comment">&#x27;创建fso对象</span></span><br><span class="line"><span class="keyword">set</span> colDrives = fso.Drives <span class="comment">&#x27;获取驱动器号列表</span></span><br><span class="line"><span class="keyword">For</span> <span class="keyword">Each</span> disk <span class="keyword">in</span> colDrives <span class="comment">&#x27;遍历驱动器号</span></span><br><span class="line">  WSH.Echo(disk)</span><br><span class="line"><span class="keyword">Next</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.51cto.com/u_11508007/3594301">VBS查看分区剩余空间</a><br><a href="https://blog.51cto.com/sucre/411649">用vbs脚本获取磁盘信息</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>判断变量为空的方法</title>
+    <url>/2022/03/14/%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E4%B8%BA%E7%A9%BA%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>平常用到bat python比较多，这两种语言非常好判断。但是js就不方便了，因为js变量的不同类型判断的方式是不一样的。</p>
+<blockquote>
+<p>JavaScript本身没有判断一个变量值是不是空值的函数，因为变量有可能是string，object，number，boolean等类型，类型不同，判断方法也不同。</p>
+</blockquote>
+<p>下面将演示三种语言中如何判断：</p>
+<span id="more"></span>
+<h1 id="js"><a href="#js" class="headerlink" title="js"></a>js</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str1=<span class="string">&quot;&quot;</span></span><br><span class="line">str2=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> (str1+str2==<span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    <span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(<span class="string">&#x27;变量为空&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(<span class="string">&#x27;变量不是空的&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里最关键的点在于提前指定好两个变量的类型为字符串形式，这样就不会不存在了，也可以规避掉js对不同变量类型的结果变更。我们只需要判断值是否是没有任何字符串的空字符就好了。</p>
+<h1 id="bat"><a href="#bat" class="headerlink" title="bat"></a>bat</h1><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%str1%</span><span class="variable">%str2%</span>&quot;==&quot;&quot; (</span><br><span class="line">   <span class="built_in">echo</span> 变量为空</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">   <span class="built_in">echo</span> 变量不是空的</span><br><span class="line">)</span><br><span class="line">timeout <span class="number">2</span> <span class="number">1</span>&gt;<span class="built_in">nul</span></span><br></pre></td></tr></table></figure>
+<p>相比bat，就比js简化多了，不会对变量的类型产生不同的结果。可以说bat压根不存在变量类型，一切皆为字符型。甚至你的变量没有定义，只要没检测到字符，就可以判断。</p>
+<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1=<span class="string">&quot;&quot;</span></span><br><span class="line">str2=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(str1+str2) == <span class="number">0</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;变量为空&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;变量不是空的&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>这里用到的<code>len</code>，和bat中的<code>errorlevel</code>错误等级类似。如果一个变量内容不是空，则返回1，如果两个变量都不是空，那就返回2。都是空，则返回0。当然这是针对字符串类型的变量，如果你的变量为字符串型，那么你需要进行转换。<br>例如str1不是字符串，len中需要对其进行转换：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(str1)+str2) == <span class="number">0</span>:</span><br></pre></td></tr></table></figure>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.html.cn/qa/javascript/12161.html">javascript判断变量值是否为空？</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -203,56 +253,6 @@
 </tr>
 </tbody></table>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.csdn.net/duhengqi/article/details/54882464">编程常用缩写（带中文）</a><br><a href="https://blog.csdn.net/weixin_40933787/article/details/80337434">编程常用缩写（不带中文）</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo next主题查找css对应文件</title>
-    <url>/2022/03/08/hexo%20next%E4%B8%BB%E9%A2%98%E6%9F%A5%E6%89%BEcss%E5%AF%B9%E5%BA%94%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><img src="/images/20220308155106.png"><br>比如我需要将首页，标签背景黑色，变成我想要的颜色。必须要在next\source\css下的.styl文件里面修改。因为我的next版本是最新的，网上搜到的文章，文件代码都不一样了，只能手动查找。</p>
-<span id="more"></span>
-<h1 id="定位元素类名"><a href="#定位元素类名" class="headerlink" title="定位元素类名"></a>定位元素类名</h1><p>在元素上右击”检查”，进入开发人员工具后，选中对应标签的元素，找到类名是”site-brand-container”。<br><img src="/images/20220308155107.png"></p>
-<h1 id="cmd一句话查找-styl文件"><a href="#cmd一句话查找-styl文件" class="headerlink" title="cmd一句话查找.styl文件"></a>cmd一句话查找.styl文件</h1><p>在css上级目录，source路径下打开cmd，复制以下命令回车，即可找到对应类的.styl文件。</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off&amp;<span class="keyword">for</span> /f &quot;delims=&quot; %a <span class="keyword">in</span> (&#x27;<span class="built_in">dir</span> /b /s css\*.styl&#x27;) <span class="keyword">do</span> <span class="built_in">type</span> %a|<span class="built_in">find</span> &quot;.site-brand-container&quot; <span class="number">1</span>&gt;<span class="built_in">nul</span>&amp;&amp;<span class="built_in">echo</span> %a</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br><img src="/images/20220308160741.png"></p>
-<h1 id="修改css颜色代码"><a href="#修改css颜色代码" class="headerlink" title="修改css颜色代码"></a>修改css颜色代码</h1><p>最后在_header.styl里面找到了，替换第二行的<code>var(--theme-color)</code>为指定颜色代码，比如<code>#fc6423</code>。<br><img src="/images/20220308162049.png"></p>
-<h1 id="查看本地网页结果"><a href="#查看本地网页结果" class="headerlink" title="查看本地网页结果"></a>查看本地网页结果</h1><p>回到本地网页刷新页面，修改成功：<br><img src="/images/20220308162202.png"></p>
-<h1 id="外网页面css修改"><a href="#外网页面css修改" class="headerlink" title="外网页面css修改"></a>外网页面css修改</h1><p>最后<code>hexo d</code>提交上传至外网后，还是没有改变。还需要在hexo\public\css文件夹，main.css第14行修改颜色代码后再提交，如下图：<br><img src="/images/20220308162203.png"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>判断变量为空的方法</title>
-    <url>/2022/03/14/%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E4%B8%BA%E7%A9%BA%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>平常用到bat python比较多，这两种语言非常好判断。但是js就不方便了，因为js变量的不同类型判断的方式是不一样的。</p>
-<blockquote>
-<p>JavaScript本身没有判断一个变量值是不是空值的函数，因为变量有可能是string，object，number，boolean等类型，类型不同，判断方法也不同。</p>
-</blockquote>
-<p>下面将演示三种语言中如何判断：</p>
-<span id="more"></span>
-<h1 id="js"><a href="#js" class="headerlink" title="js"></a>js</h1><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">str1=<span class="string">&quot;&quot;</span></span><br><span class="line">str2=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> (str1+str2==<span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">    <span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(<span class="string">&#x27;变量为空&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(<span class="string">&#x27;变量不是空的&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里最关键的点在于提前指定好两个变量的类型为字符串形式，这样就不会不存在了，也可以规避掉js对不同变量类型的结果变更。我们只需要判断值是否是没有任何字符串的空字符就好了。</p>
-<h1 id="bat"><a href="#bat" class="headerlink" title="bat"></a>bat</h1><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="keyword">if</span> &quot;<span class="variable">%str1%</span><span class="variable">%str2%</span>&quot;==&quot;&quot; (</span><br><span class="line">   <span class="built_in">echo</span> 变量为空</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">   <span class="built_in">echo</span> 变量不是空的</span><br><span class="line">)</span><br><span class="line">timeout <span class="number">2</span> <span class="number">1</span>&gt;<span class="built_in">nul</span></span><br></pre></td></tr></table></figure>
-<p>相比bat，就比js简化多了，不会对变量的类型产生不同的结果。可以说bat压根不存在变量类型，一切皆为字符型。甚至你的变量没有定义，只要没检测到字符，就可以判断。</p>
-<h1 id="python"><a href="#python" class="headerlink" title="python"></a>python</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1=<span class="string">&quot;&quot;</span></span><br><span class="line">str2=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(str1+str2) == <span class="number">0</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;变量为空&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;变量不是空的&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>这里用到的<code>len</code>，和bat中的<code>errorlevel</code>错误等级类似。如果一个变量内容不是空，则返回1，如果两个变量都不是空，那就返回2。都是空，则返回0。当然这是针对字符串类型的变量，如果你的变量为字符串型，那么你需要进行转换。<br>例如str1不是字符串，len中需要对其进行转换：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(str1)+str2) == <span class="number">0</span>:</span><br></pre></td></tr></table></figure>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.html.cn/qa/javascript/12161.html">javascript判断变量值是否为空？</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>wsh获取磁盘信息</title>
-    <url>/2022/03/14/wsh%E8%8E%B7%E5%8F%96%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在wsh中，操控磁盘及文件由fso对象来处理，但获取数据在语法上有些不同，下面来展示一下js和vbs之间的区别。</p>
-<blockquote>
-<p>FSO是FileSystemObject 或 Scripting.FileSystemObject 的缩写，为 IIS 内置组件。可以实现文件（夹）的创建、改变、移动和删除等常见操作，也可以获取文件（夹）的名称、大小、属性、创建日期或最近修改日期等信息，还可以检测是否存在指定的文件夹。通过FSO 对象模型可以获取当前系统驱动器信息，如驱动器的种类（CD－ROM还是可移动磁盘）、磁盘剩余空间等等。</p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="获取驱动器号"><a href="#获取驱动器号" class="headerlink" title="获取驱动器号"></a>获取驱动器号</h1><p>js</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fso = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>) <span class="comment">//创建fso对象</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Enum</span> = <span class="keyword">new</span> <span class="title class_">Enumerator</span>(fso.<span class="property">Drives</span>) <span class="comment">//获取驱动器号列表</span></span><br><span class="line"><span class="keyword">for</span>(<span class="title class_">Enum</span>.<span class="title function_">moveFirst</span>();!<span class="title class_">Enum</span>.<span class="title function_">atEnd</span>();<span class="title class_">Enum</span>.<span class="title function_">moveNext</span>())&#123; <span class="comment">//遍历驱动号</span></span><br><span class="line">    <span class="keyword">var</span> drive = <span class="title class_">Enum</span>.<span class="title function_">item</span>()</span><br><span class="line">    <span class="variable constant_">WSH</span>.<span class="title class_">Echo</span>(drive)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>vbs</p>
-<figure class="highlight vbs"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> fso = <span class="built_in">CreateObject</span>(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>) <span class="comment">&#x27;创建fso对象</span></span><br><span class="line"><span class="keyword">set</span> colDrives = fso.Drives <span class="comment">&#x27;获取驱动器号列表</span></span><br><span class="line"><span class="keyword">For</span> <span class="keyword">Each</span> disk <span class="keyword">in</span> colDrives <span class="comment">&#x27;遍历驱动器号</span></span><br><span class="line">  WSH.Echo(disk)</span><br><span class="line"><span class="keyword">Next</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://blog.51cto.com/u_11508007/3594301">VBS查看分区剩余空间</a><br><a href="https://blog.51cto.com/sucre/411649">用vbs脚本获取磁盘信息</a></p>
 ]]></content>
   </entry>
 </search>
